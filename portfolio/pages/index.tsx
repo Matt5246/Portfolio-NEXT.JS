@@ -9,6 +9,7 @@ import WorkExperience from '@/components/WorkExperience'
 import Skills from '@/components/Skills'
 import Projects from '@/components/Projects'
 import ContactMe from '@/components/ContactMe'
+import Link from 'next/link'
 
 const inter = Inter({ subsets: ['latin'] })
 export default function Home() {
@@ -21,7 +22,7 @@ export default function Home() {
       <section id="main" className='snap-start'>
         <Main/>
       </section>
-      <section id="main" className='snap-center'>
+      <section id="about" className='snap-center'>
         <About/>
       </section>
       <section id="experience" className='snap-center'>
@@ -36,6 +37,17 @@ export default function Home() {
       <section id="contactme" className='snap-center'>
         <ContactMe/>
       </section>
+
+      <Link href="#main">
+        <footer className='sticky bottom-5 w-full cursor-pointer'>
+          <div className='flex items-center justify-center'>
+            <img className="h-10 w-10 rounded-full filter grayscale hover:grayscale-0" src="https://jmiandro.files.wordpress.com/2017/09/upv0vy8.jpg?w=1200"
+            />
+            
+          </div>
+        </footer>
+      </Link>
+
     </div>    
   )
 }

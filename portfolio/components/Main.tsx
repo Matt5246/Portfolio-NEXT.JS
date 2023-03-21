@@ -19,7 +19,7 @@ export default function Main (props: IAppProps) {
   return (
     <div className='h-screen flex flex-col space-y-8 items-center justify-center text-center overflow-hidden'>
       <BackgroundCircles/>
-      <img
+      <img src="https://jmiandro.files.wordpress.com/2017/09/upv0vy8.jpg?w=1200"
       className='relative rounded-full h-32 w-32 mx-auto object-cover'
       />
       <div className='z-20'>
@@ -29,8 +29,8 @@ export default function Main (props: IAppProps) {
           <Cursor cursorColor='#F7AB0A'/>
         </h1>
         <div className='pt-5'>
-          <Link href="#about"><button className='mainButton'>Experience</button></Link>
-          <Link href="#experience"><button className='mainButton'>About</button></Link>
+          <Link href="#experience"><button className='mainButton'>Experience</button></Link>
+          <Link href="#about"><button className='mainButton'>About</button></Link>
           <Link href="#skills"><button className='mainButton'>Skills</button></Link>
           <Link href="#projects"><button className='mainButton'>Projects</button></Link>
         </div>
