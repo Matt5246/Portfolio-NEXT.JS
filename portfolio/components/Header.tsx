@@ -1,11 +1,14 @@
 import * as React from 'react';
 import { SocialIcon } from 'react-social-icons';
 import {motion} from "framer-motion";
+import Link from 'next/link';
+import { Experience, PageInfo, Project, Skill, Social} from "@/typings";
 
-export interface IAppProps {
+type Props={
+  socials: Social[];
 }
 
-export default function Header (props: IAppProps) {
+export default function Header ({socials}: Props) {
   return (
     <header className="sticky top-0 p-5 flex items-start justify-between max-w-7xl mx-auto z-20 xl:items-center">
       <motion.div
@@ -23,15 +26,17 @@ export default function Header (props: IAppProps) {
         duration:1,
       }}
       className='flex flex-row items-center'>
-        <SocialIcon url="https://www.youtube.com/channel/UCM2zh5RhfG7ikUBwFfsRMcg" 
+        {socials?.map((social)=>(<SocialIcon 
+        key={social._id}
+        url={social.url} 
         fgColor='gray'
         bgColor='transparent' 
         />
-        <SocialIcon url="https://github.com/Matt5246" 
-        fgColor='gray'
-        bgColor='transparent' 
-        />
+        ))}
+        
+        
       </motion.div>
+      <Link href="#contact">
       <motion.div 
       initial={{
         x: 500,
@@ -56,7 +61,7 @@ export default function Header (props: IAppProps) {
             Get In Touch
         </p>
       </motion.div>
-      
+      </Link>
     </header>
   );
 }
