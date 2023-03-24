@@ -18,19 +18,13 @@ import { fetchExperiences } from '@/utils/fetchExperiences'
 import { fetchSocial } from '@/utils/fetchSocials'
 import { fetchProjects} from '@/utils/fetchProjects'
 
-type Props = {
-  pageInfo: PageInfo[];
-  experiences: Experience[];
-  skills: Skill[];
-  projects: Project[];
-  socials: Social[];
-}
-const inter = Inter({ subsets: ['latin'] })
-export default function Home({pageInfo, experiences, projects, skills, socials}: Props) {
+
+const inter = Inter({ subsets: ['latin'] });
+const Home=({pageInfo, experiences, projects, skills, socials}: Props) => {
   return (
     <div className='bg-[rgb(36,36,36)] text-white h-screen snap-y snap-mandatory overflow-y-scroll overflow-x-hidden z-0 scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80'>
       <Head>
-        <title>Matt5246's portfolio</title>
+        <title>Matt5246 portfolio</title>
       </Head>
       <Header socials={socials}/>
       <section id="main" className='snap-start'>
@@ -57,17 +51,24 @@ export default function Home({pageInfo, experiences, projects, skills, socials}:
           <div className='flex items-center justify-center'>
             <img className="h-10 w-10 rounded-full filter grayscale hover:grayscale-0" src="https://jmiandro.files.wordpress.com/2017/09/upv0vy8.jpg?w=1200"
             />
-            
           </div>
         </footer>
       </Link>
-
+      
     </div>    
   )
 }
-
-export const getStaticProps: GetStaticProps<Props> = async () => {
-  const pageInfo: PageInfo[] = await fetchPageInfo();
+export default Home;
+type Props = {
+  pageInfo: PageInfo;
+  experiences: Experience[];
+  skills: Skill[];
+  projects: Project[];
+  socials: Social[];
+  
+};
+ const getStaticProps: GetStaticProps<Props> = async () => {
+  const pageInfo: PageInfo = await fetchPageInfo();
   const experiences: Experience[] = await fetchExperiences();
   const skills: Skill[] = await fetchSkills();
   const projects: Project[] = await fetchProjects();
@@ -80,9 +81,10 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
       skills,
       projects,
       socials,
-
-    },
-
-    revalidate: 10,
+    }
   };
 };
+
+
+
+

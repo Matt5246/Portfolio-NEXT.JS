@@ -12,7 +12,7 @@ type Inputs = {
 export default function App() {
     const { register, handleSubmit, formState: { errors } } = useForm<Inputs>();
     const onSubmit: SubmitHandler<Inputs> =(formData) => {
-        window.location.href = `mailto:Matt57628@gmail.com?subject=${formData.subject}&body=Hi, my name is ${formData.name}. ${formData.message} (${formData.email})`;
+        //window.location.href = `mailto:Matt57628@gmail.com?subject=${formData.subject}&body=Hi, my name is ${formData.name}. ${formData.message} (${formData.email})`;
     };
   
   return (
