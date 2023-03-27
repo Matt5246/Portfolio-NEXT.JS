@@ -2,11 +2,14 @@ import * as React from 'react';
 import {Cursor, useTypewriter} from "react-simple-typewriter"
 import BackgroundCircles from '@/components/BackgroundCircles'
 import Link from 'next/link';
+import { urlFor } from '@/sanity';
+import {PageInfo} from "@/typings";
 
-export interface IAppProps {
+type Props ={
+  pageInfo: PageInfo;
 }
 
-export default function Main (props: IAppProps) {
+export default function Main ({pageInfo}:Props) {
   const [text, count] = useTypewriter({
     words: [
       "Hi, my name is Paul",
@@ -19,11 +22,11 @@ export default function Main (props: IAppProps) {
   return (
     <div className='h-screen flex flex-col space-y-8 items-center justify-center text-center overflow-hidden'>
       <BackgroundCircles/>
-      <img src="https://jmiandro.files.wordpress.com/2017/09/upv0vy8.jpg?w=1200"
+      <img src={urlFor(pageInfo?.mainImage).url()}
       className='relative rounded-full h-32 w-32 mx-auto object-cover'
       />
       <div className='z-20'>
-        <h2 className='text-sm uppercase text-gray-500 pb-2 tracking-[15px]'>Software Engineer</h2>
+        <h2 className='text-sm uppercase text-gray-500 pb-2 tracking-[15px]'>{pageInfo?.role}</h2>
         <h1 className='text-5xl lg:text-6xl font-semibold px-10'>
           <span>{text}</span>
           <Cursor cursorColor='#F7AB0A'/>
@@ -38,3 +41,4 @@ export default function Main (props: IAppProps) {
     </div>
   );
 }
+
