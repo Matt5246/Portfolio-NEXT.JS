@@ -1,9 +1,13 @@
 import * as React from 'react';
 import {motion} from "framer-motion";
-export interface IAppProps {
+import {PageInfo} from "@/typings";
+import { urlFor } from '@/sanity';
+
+type Props = {
+    pageInfo: PageInfo;
 }
 
-export default function App (props: IAppProps) {
+export default function App ({pageInfo}:Props) {
   return (
     <motion.div 
     initial={{ opacity: 0 }}
@@ -24,14 +28,14 @@ export default function App (props: IAppProps) {
         whileInView={{opacity:1,x:0}}
         viewport={{once:true}}
         className="mb-20 md:mb-0 flex-shrink-0 w-56 rounded-full object-cover md:rounded-lg md:w-64 md:h-95 xl:w-[500px] xl:h-[600px]"
-        src="https://i.pinimg.com/736x/55/9d/d4/559dd456f97f0e00fb3869127f0ff2e8.jpg"
+        src={urlFor(pageInfo?.profilePic).url()}
         />
         <div className='space-y-10 px-0 md:px-10'>
             <h4 className='text-4xl font-semibold'>
                 Here is a{" "}
                 <span className='underline decoration-[#F7AB0A]/60'>little</span>{" "}
                 background
-                <p className='text-sm'>My mom died year ago, i leave in basement, and eat freezed food, i dont have friends. Please give me job</p>
+                <p className='text-sm'>{pageInfo?.backgroundInformation}</p>
             </h4>
         </div>
     </motion.div>

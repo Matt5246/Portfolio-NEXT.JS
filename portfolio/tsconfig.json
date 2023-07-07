@@ -18,7 +18,7 @@
       "@/*": ["./*"],
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "data/schemas/pageInfo.js", "data/schemas/index.js", "data/schemas/social.js", "data/schemas/skill.js", "data/schemas/project.js"],
   "exclude": ["node_modules"],
   "typeRoots": ["./node_modules/@types"]
 }
